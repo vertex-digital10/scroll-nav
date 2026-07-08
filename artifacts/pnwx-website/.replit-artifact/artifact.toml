@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "Pacific Northwest X-Ray Inc."
+version = "1.0.0"
+id = "artifacts/pnwx-website"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22478
+
+[services.development]
+run = "pnpm --filter @workspace/pnwx-website run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/pnwx-website", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/pnwx-website/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22478"
+BASE_PATH = "/"
