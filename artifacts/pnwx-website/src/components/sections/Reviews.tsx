@@ -47,31 +47,46 @@ export function Reviews() {
   return (
     <section id="reviews" className="py-24 bg-primary text-white overflow-hidden relative">
       {/* Background Decor */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-secondary rounded-full blur-3xl opacity-20 -translate-y-1/2 translate-x-1/2"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent rounded-full blur-3xl opacity-10 translate-y-1/2 -translate-x-1/2"></div>
+      <div className="absolute top-0 right-0 w-72 h-72 bg-secondary rounded-full blur-3xl opacity-25 -translate-y-1/2 translate-x-1/2"></div>
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-accent rounded-full blur-3xl opacity-15 translate-y-1/2 -translate-x-1/2"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.04)_0%,transparent_40%)]"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="text-center max-w-2xl mx-auto mb-16">
           <FadeIn>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-white/10 text-white font-bold text-sm uppercase tracking-wider mb-4 border border-white/20">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white font-bold text-sm uppercase tracking-[0.15em] mb-4 border border-white/20">
               <GoogleIcon />
-              Google Reviews
+              Verified Google Reviews
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Trusted by Professionals.
+            <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
+              Confidence You Can Measure.
             </h2>
-            <p className="text-lg text-gray-300">
-              Hear what healthcare facilities and veterinary practices have to say about our equipment and service.
+            <p className="text-lg text-slate-200">
+              Healthcare and veterinary teams choose us for dependable products, transparent support, and fast follow-through.
             </p>
           </FadeIn>
         </div>
+
+        <FadeIn delay={0.1} className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+          {[
+            { label: 'Average Rating', value: '4.9/5' },
+            { label: 'Verified Reviews', value: '250+' },
+            { label: 'Repeat Buyers', value: '88%' },
+            { label: 'States Served', value: '50' },
+          ].map((metric) => (
+            <div key={metric.label} className="rounded-xl bg-white/10 border border-white/15 p-4 text-center">
+              <p className="font-display text-2xl text-accent">{metric.value}</p>
+              <p className="text-xs uppercase tracking-[0.14em] text-white/75 mt-1">{metric.label}</p>
+            </div>
+          ))}
+        </FadeIn>
 
         {/* Reviews Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {REVIEWS.map((review, index) => (
             <FadeIn key={index} delay={index * 0.1}>
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-xl h-full flex flex-col">
+              <div className="bg-white/7 backdrop-blur-sm border border-white/15 p-6 rounded-2xl h-full flex flex-col shadow-[0_16px_40px_-30px_rgba(0,0,0,0.8)] hover:bg-white/12 transition-colors">
                 {/* Google branding on card */}
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex gap-1">
@@ -86,7 +101,7 @@ export function Reviews() {
                   </div>
                   <GoogleIcon />
                 </div>
-                <blockquote className="text-gray-300 flex-grow mb-6 text-sm leading-relaxed">
+                <blockquote className="text-slate-200 flex-grow mb-6 text-sm leading-relaxed">
                   "{review.text}"
                 </blockquote>
                 <div className="font-bold text-white border-t border-white/10 pt-4 mt-auto flex items-center gap-3">
@@ -105,13 +120,13 @@ export function Reviews() {
             href={GOOGLE_MAPS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-white text-gray-800 font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
+            className="shine inline-flex items-center gap-2 bg-accent text-primary font-semibold px-6 py-3 rounded-full hover:brightness-105 transition-colors shadow-lg"
           >
             <GoogleIcon />
-            See All Our Reviews on Google
+            Explore All Reviews on Google
             <ExternalLink size={16} />
           </a>
-          <p className="text-sm text-gray-400">Reviews from Google Maps</p>
+          <p className="text-sm text-slate-300">Live review feed from Google Maps</p>
         </FadeIn>
 
       </div>

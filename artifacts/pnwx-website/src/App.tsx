@@ -8,7 +8,7 @@ import { Footer } from '@/components/layout/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-background font-sans selection:bg-accent/30 selection:text-primary">
+    <div className="min-h-screen bg-background font-sans selection:bg-accent/40 selection:text-primary">
       <Navbar />
       
       <main>
