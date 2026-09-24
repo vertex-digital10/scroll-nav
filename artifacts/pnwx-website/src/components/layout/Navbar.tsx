@@ -4,7 +4,7 @@ import { Menu, X } from 'lucide-react';
 const NAV_LINKS = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
-  { name: 'Reviews', href: '#reviews' },
+  { name: 'Our approach', href: '#reviews' },
   { name: 'Services', href: '#services' },
   { name: 'Contact', href: '#contact' },
 ];
@@ -87,7 +87,7 @@ export function Navbar() {
         <button 
           className={`md:hidden p-2 rounded-md ${isScrolled ? 'text-primary' : 'text-white'}`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
+          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"} aria-expanded={mobileMenuOpen}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -118,3 +118,5 @@ export function Navbar() {
     </header>
   );
 }
+
+
